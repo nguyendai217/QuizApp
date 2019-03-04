@@ -1,4 +1,4 @@
-package com.example.admin.quizapp.subjects;
+package com.example.admin.quizapp.fragment;
 
 
 import android.os.Bundle;
@@ -12,10 +12,12 @@ import com.example.admin.quizapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_Chemistry extends Fragment {
+public class Fragment_Home extends Fragment {
 
 
-    public Fragment_Chemistry() {
+
+    public Fragment_Home() {
+
         // Required empty public constructor
     }
 
@@ -24,8 +26,9 @@ public class Fragment_Chemistry extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      //  getActivity().getActionBar().setTitle("Môn Hóa Học");
-        return inflater.inflate(R.layout.fragment_chemistry, container, false);
+        //getActivity().getActionBar().setTitle("Trang Chủ");
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
+
 
 }

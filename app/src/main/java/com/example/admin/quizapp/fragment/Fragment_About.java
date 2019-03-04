@@ -1,4 +1,5 @@
-package com.example.admin.quizapp.subjects;
+package com.example.admin.quizapp.fragment;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,12 @@ import android.view.ViewGroup;
 
 import com.example.admin.quizapp.R;
 
-public class Fragment_Physics extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Fragment_About extends Fragment {
 
-    public Fragment_Physics() {
+    public Fragment_About() {
         // Required empty public constructor
     }
 
@@ -19,10 +23,8 @@ public class Fragment_Physics extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       // getActivity().getActionBar().setTitle("Môn Vật Lý");
-        return inflater.inflate(R.layout.fragment_physics, container, false);
+        //getActivity().getActionBar().setTitle("Thông tin");
+        return inflater.inflate(R.layout.fragment_about, container, false);
     }
-
-
 
 }

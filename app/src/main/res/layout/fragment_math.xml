@@ -3,22 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".subjects.Fragment_Math"
-    android:background="#e5e917"
+    tools:context=".fragment.Fragment_Math"
+    android:background="#ffffff"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridView
+        android:layout_marginTop="10dp"
+        android:numColumns="2"
+        android:id="@+id/gvExam"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
-    <Button
-        android:layout_gravity="center"
-        android:text="click"
-        android:id="@+id/btnStart"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="match_parent" />
 </FrameLayout>

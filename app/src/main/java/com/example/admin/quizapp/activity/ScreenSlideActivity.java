@@ -1,14 +1,10 @@
 package com.example.admin.quizapp.activity;
-
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -22,8 +18,8 @@ public class ScreenSlideActivity extends FragmentActivity {
     private static final int NUM_PAGES = 5;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
-    private Dialog dialog ;
-   // AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+    private Dialog dialog;
+    // AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +35,7 @@ public class ScreenSlideActivity extends FragmentActivity {
         viewPager.setPageTransformer(true, new DepthPageTransformer());// setup hiệu ứng cho viewpager
 
     }
+
     private void init() {
         viewPager = findViewById(R.id.vwPager);
     }
@@ -59,6 +56,7 @@ public class ScreenSlideActivity extends FragmentActivity {
             return NUM_PAGES;
         }
     }
+
     @Override
     public void onBackPressed() {
         if (viewPager.getCurrentItem() == 0) {
@@ -66,11 +64,12 @@ public class ScreenSlideActivity extends FragmentActivity {
 
         } else {
             viewPager.setCurrentItem(viewPager.getCurrentItem());
-            dialog= new Dialog(ScreenSlideActivity.this);
+            dialog = new Dialog(ScreenSlideActivity.this);
             showAlertDialog();
         }
     }
-    public void showAlertDialog(){
+
+    public void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Thông Báo");
         builder.setMessage("Bạn có muốn thoát bài kiểm tra hay không?");
@@ -84,14 +83,13 @@ public class ScreenSlideActivity extends FragmentActivity {
         builder.setNegativeButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-               finish();
+                finish();
             }
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
     }
-
 
     public static class DepthPageTransformer implements ViewPager.PageTransformer {
         private static float MIN_SCALE = 0.75f;

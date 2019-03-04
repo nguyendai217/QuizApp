@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_book"
+        android:id="@+id/img_Exam"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+    <TextView
+        android:id="@+id/tv_NumberExam"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Đề kiểm tra số 1"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp" />
+
+</LinearLayout>

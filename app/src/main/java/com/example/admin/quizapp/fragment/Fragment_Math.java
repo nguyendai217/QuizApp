@@ -1,7 +1,5 @@
-package com.example.admin.quizapp.subjects;
+package com.example.admin.quizapp.fragment;
 
-
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,45 +7,48 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.activity.ScreenSlideActivity;
+import com.example.admin.quizapp.adapter.ExamAdapter;
+import com.example.admin.quizapp.model.Exam;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Math extends Fragment {
-    ActionBar actionBar;
-    Button btnStart;
-
+    GridView gridViewExam;
+    ExamAdapter examAdapter;
+    ArrayList<Exam> arrayListExam = new ArrayList<>();
 
     public Fragment_Math() {
         // Required empty public constructor
     }
 
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        init();
-        controls();
-    }
 
-    private void controls() {
-        btnStart.setOnClickListener(new View.OnClickListener() {
+        gridViewExam = getActivity().findViewById(R.id.gvExam);
+        for (int i =1; i <8 ; i++) {
+            arrayListExam.add(new Exam("Đề thi số "+i));
+
+        }
+        examAdapter = new ExamAdapter(getActivity(), arrayListExam);
+        gridViewExam.setAdapter(examAdapter);
+        gridViewExam.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), ScreenSlideActivity.class);
                 startActivity(intent);
             }
         });
-    }
 
-    private void init() {
-        btnStart = getActivity().findViewById(R.id.btnStart);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,5 +56,6 @@ public class Fragment_Math extends Fragment {
         // getActivity().getActionBar().setTitle("Môn Toán");
         return inflater.inflate(R.layout.fragment_math, container, false);
     }
+
 
 }
