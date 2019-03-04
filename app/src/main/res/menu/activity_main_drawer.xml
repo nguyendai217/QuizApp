@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home " />
+    </group>
+    <item android:title="Đề Thi Trắc Nghiệm">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_math"
+                    android:icon="@drawable/icon_math"
+                    android:title="Môn Toán" />
+                <item
+                    android:id="@+id/nav_physics"
+                    android:icon="@drawable/icons8_physics"
+                    android:title="Vật Lý" />
+                <item
+                    android:id="@+id/nav_chemistry"
+                    android:icon="@drawable/icon_chemistry"
+                    android:title="Hóa Học" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Thông tin">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_info_outline_black_24dp"
+                    android:title="Thông tin phần mềm"></item>
+            </group>
+        </menu>
+    </item>
+</menu>
