@@ -1,4 +1,5 @@
 package com.example.admin.quizapp.activity;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -13,13 +14,18 @@ import android.view.View;
 
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.fragment.ScreenSlideFragment;
+import com.example.admin.quizapp.question.Question;
+import com.example.admin.quizapp.question.QuestionController;
+
+import java.util.ArrayList;
 
 public class ScreenSlideActivity extends FragmentActivity {
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 10;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
-    private Dialog dialog;
-    // AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+    QuestionController questionController;
+    ArrayList<Question>arrQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +39,19 @@ public class ScreenSlideActivity extends FragmentActivity {
         pagerAdapter = new ScreenSlideAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setPageTransformer(true, new DepthPageTransformer());// setup hiệu ứng cho viewpager
+        questionController= new QuestionController(this);
+        arrQuestion= new ArrayList<>();
+        arrQuestion= questionController.getQuestion(1,"math");
+
+
+    }
+    public  ArrayList<Question> getData(){
+        return  arrQuestion;
 
     }
 
     private void init() {
-        viewPager = findViewById(R.id.vwPager);
+        viewPager = findViewById(R.id.vwpager);
     }
 
     private class ScreenSlideAdapter extends FragmentStatePagerAdapter {
@@ -48,7 +62,7 @@ public class ScreenSlideActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int i) {
-            return new ScreenSlideFragment();
+            return ScreenSlideFragment.create(i);
         }
 
         @Override
@@ -59,12 +73,12 @@ public class ScreenSlideActivity extends FragmentActivity {
 
     @Override
     public void onBackPressed() {
-        if (viewPager.getCurrentItem() == 0) {
+        if (viewPager.getCurrentItem()== 0 ) {
             super.onBackPressed();
 
         } else {
             viewPager.setCurrentItem(viewPager.getCurrentItem());
-            dialog = new Dialog(ScreenSlideActivity.this);
+            Dialog dialog = new Dialog(ScreenSlideActivity.this);
             showAlertDialog();
         }
     }

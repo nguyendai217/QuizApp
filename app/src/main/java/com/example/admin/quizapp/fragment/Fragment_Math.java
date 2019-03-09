@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_Math extends Fragment {
+public class Fragment_Math extends Fragment implements onBackPressListener {
     GridView gridViewExam;
     ExamAdapter examAdapter;
     ArrayList<Exam> arrayListExam = new ArrayList<>();
@@ -47,6 +48,19 @@ public class Fragment_Math extends Fragment {
                 startActivity(intent);
             }
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+
+        int count =getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+
+            //additional code
+        } else {
+            getFragmentManager().popBackStack();
+        }
 
     }
     @Override
