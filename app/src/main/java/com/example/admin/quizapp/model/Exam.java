@@ -6,7 +6,6 @@ public class Exam {
     public Exam() {
 
     }
-
     public String getName() {
         return name;
     }

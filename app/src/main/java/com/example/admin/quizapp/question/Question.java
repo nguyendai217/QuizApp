@@ -1,28 +1,27 @@
 package com.example.admin.quizapp.question;
-
 public class Question {
     private int id;
-    private String content;
+    private String contents;
     private String ans_a;
     private String ans_b;
     private String ans_c;
     private String ans_d;
     private String result;
-    private String subject;
     private String image;
-    private int number_subject;
+    private int number_exam;
+    private String monhoc;
 
-    public Question(int id, String content, String ans_a, String ans_b, String ans_c, String ans_d, String result, String subject, String image, int number_subject) {
+    public Question(int id, String contents, String ans_a, String ans_b, String ans_c, String ans_d, String result, String image, int number_exam, String monhoc) {
         this.id = id;
-        this.content = content;
+        this.contents = contents;
         this.ans_a = ans_a;
         this.ans_b = ans_b;
         this.ans_c = ans_c;
         this.ans_d = ans_d;
         this.result = result;
-        this.subject = subject;
         this.image = image;
-        this.number_subject = number_subject;
+        this.number_exam = number_exam;
+        this.monhoc = monhoc;
     }
 
     public int getId() {
@@ -33,12 +32,12 @@ public class Question {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getContents() {
+        return contents;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContents(String contents) {
+        this.contents = contents;
     }
 
     public String getAns_a() {
@@ -81,14 +80,6 @@ public class Question {
         this.result = result;
     }
 
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
     public String getImage() {
         return image;
     }
@@ -96,15 +87,20 @@ public class Question {
     public void setImage(String image) {
         this.image = image;
     }
-
-    public int getNumber_subject() {
-        return number_subject;
+    public int getNumber_exam() {
+        return number_exam;
     }
 
-    public void setNumber_subject(int number_subject) {
-        this.number_subject = number_subject;
+    public void setNumber_exam(int number_exam) {
+        this.number_exam = number_exam;
     }
 
-    public Question() {
+    public String getMonhoc() {
+        return monhoc;
     }
+
+    public void setMonhoc(String monhoc) {
+        this.monhoc = monhoc;
+    }
+
 }

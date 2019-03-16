@@ -1,31 +1,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:id="@+id/screenslide"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8af7a2"
+    android:background="#63CF82"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/content"
+        android:id="@+id/content_question"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="90dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/tvNum"
+                    android:id="@+id/tvNumber_question"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -41,6 +38,7 @@
                     android:textSize="20sp"
                     android:textColor="#000000"
                     android:textStyle="italic"
+                    android:layout_marginLeft="20dp"
                     android:text="Câu hỏi thứ nhất " />
             </LinearLayout>
 
@@ -54,6 +52,7 @@
                 android:visibility="visible" />
 
             <RadioGroup
+                android:layout_marginTop="15dp"
                 android:id="@+id/radGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,8 +67,8 @@
                     android:textColor="#1502c7"
                     android:textStyle="bold"
                     android:text="Trả lời 1" />
-
                 <RadioButton
+                    android:layout_marginTop="5dp"
                     android:id="@+id/radB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,8 +77,8 @@
                     android:textColor="#1502c7"
                     android:textStyle="bold"
                     android:text="Trả lời 2" />
-
                 <RadioButton
+                    android:layout_marginTop="5dp"
                     android:id="@+id/radC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -90,6 +89,7 @@
                     android:text="Trả lời 3" />
 
                 <RadioButton
+                    android:layout_marginTop="5dp"
                     android:id="@+id/radD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

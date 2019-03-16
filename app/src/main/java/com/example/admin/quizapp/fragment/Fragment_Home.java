@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.admin.quizapp.R;
@@ -18,41 +19,36 @@ import com.example.admin.quizapp.activity.ScreenSlideActivity;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Home extends Fragment implements View.OnClickListener{
-    ImageView imgMath,imgChemistry,imgPhysics;
-
-
-
+    ImageButton imgbtnMath,imgbtnChemistry,imgbtnPhysics,imgbtnEnglish;
     public Fragment_Home() {
 
         // Required empty public constructor
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
         controls();
     }
-
     private void init() {
-        imgMath=getActivity().findViewById(R.id.img_math);
-        imgChemistry=getActivity().findViewById(R.id.img_chemistry);
-        imgPhysics=getActivity().findViewById(R.id.img_physics);
+        imgbtnEnglish=getActivity().findViewById(R.id.imagebtn_english);
+        imgbtnMath=getActivity().findViewById(R.id.imagebtn_math);
+        imgbtnChemistry=getActivity().findViewById(R.id.imagebtn_chemistry);
+        imgbtnPhysics=getActivity().findViewById(R.id.imagebtn_physics);
     }
-
     private void controls() {
-        imgMath.setOnClickListener(new View.OnClickListener() {
+        imgbtnEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getActivity(),ScreenSlideActivity.class);
                 startActivity(intent);
             }
         });
-        imgPhysics.setOnClickListener(this);
-        imgChemistry.setOnClickListener(this);
-
+        imgbtnChemistry.setOnClickListener(this);
+        imgbtnEnglish.setOnClickListener(this);
+        imgbtnPhysics.setOnClickListener(this);
+        imgbtnMath.setOnClickListener(this);
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,8 +56,6 @@ public class Fragment_Home extends Fragment implements View.OnClickListener{
         //getActivity().getActionBar().setTitle("Trang Chủ");
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
-
     @Override
     public void onClick(View v) {
 

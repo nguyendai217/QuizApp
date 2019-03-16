@@ -1,5 +1,4 @@
 package com.example.admin.quizapp.activity;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -11,45 +10,35 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
-
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.fragment.ScreenSlideFragment;
 import com.example.admin.quizapp.question.Question;
 import com.example.admin.quizapp.question.QuestionController;
-
 import java.util.ArrayList;
-
 public class ScreenSlideActivity extends FragmentActivity {
     private static final int NUM_PAGES = 10;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
-
     QuestionController questionController;
-    ArrayList<Question>arrQuestion;
+    ArrayList<Question>arrQuestion= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
         init();
-        controls();
+        addcontrols();
     }
-
-    private void controls() {
+    private void addcontrols() {
         pagerAdapter = new ScreenSlideAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setPageTransformer(true, new DepthPageTransformer());// setup hiệu ứng cho viewpager
-        questionController= new QuestionController(this);
-        arrQuestion= new ArrayList<>();
-        arrQuestion= questionController.getQuestion(1,"math");
-
-
     }
     public  ArrayList<Question> getData(){
+        questionController= new QuestionController(this);
+        arrQuestion = questionController.getQuestion(1,"english");
         return  arrQuestion;
-
     }
-
     private void init() {
         viewPager = findViewById(R.id.vwpager);
     }
@@ -70,7 +59,6 @@ public class ScreenSlideActivity extends FragmentActivity {
             return NUM_PAGES;
         }
     }
-
     @Override
     public void onBackPressed() {
         if (viewPager.getCurrentItem()== 0 ) {
@@ -82,7 +70,6 @@ public class ScreenSlideActivity extends FragmentActivity {
             showAlertDialog();
         }
     }
-
     public void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Thông Báo");
@@ -104,7 +91,6 @@ public class ScreenSlideActivity extends FragmentActivity {
         alertDialog.show();
 
     }
-
     public static class DepthPageTransformer implements ViewPager.PageTransformer {
         private static float MIN_SCALE = 0.75f;
 

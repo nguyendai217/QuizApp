@@ -1,22 +1,18 @@
 package com.example.admin.quizapp.fragment;
-
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.activity.ScreenSlideActivity;
 import com.example.admin.quizapp.question.Question;
-
 import java.util.ArrayList;
-import java.util.Queue;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,57 +24,40 @@ public class ScreenSlideFragment extends Fragment {
     TextView tvNum , tvQuestion;
     RadioGroup radioGroup;
     RadioButton radA, radB, radC,radD;
-
-
-
-
     public ScreenSlideFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootview= (ViewGroup) inflater.inflate(R.layout.fragment_screen_slide,container,false);
-        // Inflate the layout for this fragment
-        init();
+       tvNum= rootview.findViewById(R.id.tvNumber_question);
+       tvQuestion= rootview.findViewById(R.id.tvQuestion);
+       radA= rootview.findViewById(R.id.radA);
+        radB= rootview.findViewById(R.id.radB);
+        radC= rootview.findViewById(R.id.radC);
+        radD= rootview.findViewById(R.id.radD);
+        radioGroup= rootview.findViewById(R.id.radGroup);
         return rootview;
     }
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         arrQuestion= new ArrayList<>();
         ScreenSlideActivity screenSlide= (ScreenSlideActivity) getActivity();
         arrQuestion= screenSlide.getData();
-
         mPage= getArguments().getInt(PAGE);
-
     }
-
-    private void init() {
-        tvNum= getActivity().findViewById(R.id.tvNum);
-        tvQuestion=getActivity().findViewById(R.id.tvQuestion);
-        radA= getActivity().findViewById(R.id.radA);
-        radB= getActivity().findViewById(R.id.radB);
-        radC= getActivity().findViewById(R.id.radC);
-        radD= getActivity().findViewById(R.id.radD);
-        radioGroup= getActivity().findViewById(R.id.radGroup);
-    }
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        tvNum.setText("câu"+mPage);
-        tvQuestion.setText(arrQuestion.get(mPage).getContent());
-        radA.setText(arrQuestion.get(mPage).getAns_a());
-        radB.setText(arrQuestion.get(mPage).getAns_b());
-        radC.setText(arrQuestion.get(mPage).getAns_c());
-        radD.setText(arrQuestion.get(mPage).getAns_d());
-
+        tvNum.setText("câu"+ mPage);
+       // Log.d("dai", "onActivityCreated: "+tvNum);
+        tvQuestion.setText(arrQuestion.get(mPage).getContents());
+        radA.setText(getItem(mPage).getAns_a());
+        radB.setText(getItem(mPage).getAns_b());
+        radC.setText(getItem(mPage).getAns_c());
+        radD.setText(getItem(mPage).getAns_d());
     }
     public static ScreenSlideFragment create(int pageNumber){
         ScreenSlideFragment screenFragment= new ScreenSlideFragment();
@@ -87,5 +66,7 @@ public class ScreenSlideFragment extends Fragment {
         screenFragment.setArguments(bundle);
         return screenFragment;
     }
-
+    public Question getItem(int posotion){
+        return arrQuestion.get(posotion);
+    }
 }

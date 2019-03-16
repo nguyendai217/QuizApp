@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.fragment.Fragment_About;
 import com.example.admin.quizapp.fragment.Fragment_Chemistry;
+import com.example.admin.quizapp.fragment.Fragment_English;
 import com.example.admin.quizapp.fragment.Fragment_Home;
 import com.example.admin.quizapp.fragment.Fragment_Math;
 import com.example.admin.quizapp.fragment.Fragment_Physics;
@@ -34,23 +35,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportActionBar().setTitle("Home");
@@ -65,7 +56,6 @@ public class MainActivity extends AppCompatActivity
             e.printStackTrace();
         }
     }
-
     @Override
     public void onBackPressed() {
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -78,7 +68,6 @@ public class MainActivity extends AppCompatActivity
 //
 //        }
     }
-
     public void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Thông Báo");
@@ -107,7 +96,6 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -119,11 +107,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -135,13 +120,19 @@ public class MainActivity extends AppCompatActivity
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragmentHome, fragmentHome.getTag()).commit();
             // Handle the camera action
-        } else if (id == R.id.nav_math) {
+        } else if (id == R.id.nav_english) {
+            getSupportActionBar().setTitle(" Tiếng Anh");
+            Fragment_English fragmenEnglish = new Fragment_English();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_main, fragmenEnglish, fragmenEnglish.getTag()).commit();
+
+        }else if (id == R.id.nav_math) {
             getSupportActionBar().setTitle("  Môn Toán");
             Fragment_Math fragmentMath = new Fragment_Math();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragmentMath, fragmentMath.getTag()).commit();
 
-        } else if (id == R.id.nav_physics) {
+        }else if (id == R.id.nav_physics) {
             getSupportActionBar().setTitle("  Môn Vật Lý");
             Fragment_Physics fragmentPhysics = new Fragment_Physics();
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -159,9 +150,8 @@ public class MainActivity extends AppCompatActivity
             Fragment_About fragmentAbout = new Fragment_About();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragmentAbout, fragmentAbout.getTag()).commit();
-
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
