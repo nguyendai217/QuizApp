@@ -1,105 +1,144 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/screenslide"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#63CF82"
+    android:background="@drawable/bgslide"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/content_question"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginTop="90dp"
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
             <LinearLayout
+                android:id="@+id/ln_question"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tvNumber_question"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvNumber_question"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Câu 1"
+                        android:textColor="#ff0011"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvQuestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Câu hỏi thứ nhất "
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="22sp"
-                    android:textColor="#ff0011"
-                    android:textStyle="bold"
-                    android:text="Câu 1" />
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:visibility="visible" />
 
-                <TextView
-                    android:id="@+id/tvQuestion"
+                <RadioGroup
+                    android:id="@+id/radGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textColor="#000000"
-                    android:textStyle="italic"
-                    android:layout_marginLeft="20dp"
-                    android:text="Câu hỏi thứ nhất " />
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="5dp">
+
+                    <RadioButton
+                        android:id="@+id/radA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="Trả lời 1"
+                        android:textColor="#1502c7"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:checked="false"
+                        android:text="Trả lời 2"
+                        android:textColor="#1502c7"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:checked="false"
+                        android:text="Trả lời 3"
+                        android:textColor="#1502c7"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:checked="false"
+                        android:text="Trả lời 4"
+                        android:textColor="#1502c7"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RadioGroup>
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/ivIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:padding="0dp"
-                android:layout_gravity="center"
-                android:visibility="visible" />
-
-            <RadioGroup
-                android:layout_marginTop="15dp"
-                android:id="@+id/radGroup"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp">
+                android:layout_below="@id/ln_question"
+                android:layout_marginTop="70dp"
+                android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/radA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:textColor="#1502c7"
-                    android:textStyle="bold"
-                    android:text="Trả lời 1" />
-                <RadioButton
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/radB"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:textColor="#1502c7"
-                    android:textStyle="bold"
-                    android:text="Trả lời 2" />
-                <RadioButton
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/radC"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:textColor="#1502c7"
-                    android:textStyle="bold"
-                    android:text="Trả lời 3" />
+                <Button
+                    android:id="@+id/btn_pre"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_next"
+                    android:text="Preivew"
+                    android:textColor="#ffff" />
 
-                <RadioButton
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/radD"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="16sp"
-                    android:textColor="#1502c7"
-                    android:textStyle="bold"
-                    android:text="Trả lời 4" />
-            </RadioGroup>
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btn_next"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_next"
+                    android:text="Next"
+                    android:textColor="#ffff" />
+            </LinearLayout>
+        </RelativeLayout>
+
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>
 

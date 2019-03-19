@@ -16,11 +16,8 @@ import android.view.MenuItem;
 
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.fragment.Fragment_About;
-import com.example.admin.quizapp.fragment.Fragment_Chemistry;
 import com.example.admin.quizapp.fragment.Fragment_English;
 import com.example.admin.quizapp.fragment.Fragment_Home;
-import com.example.admin.quizapp.fragment.Fragment_Math;
-import com.example.admin.quizapp.fragment.Fragment_Physics;
 import com.example.admin.quizapp.question.DBHelper;
 
 import java.io.IOException;
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         getSupportActionBar().setTitle("Home");
@@ -49,25 +46,27 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_main, fragmentHome, fragmentHome.getTag()).commit();
 
-        DBHelper dbHelper= new DBHelper(this);
+        DBHelper dbHelper = new DBHelper(this);
         try {
             dbHelper.createDataBase();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @Override
     public void onBackPressed() {
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //        if (drawer.isDrawerOpen(GravityCompat.START)) {
 //            drawer.closeDrawer(GravityCompat.START);
 //        } else {
-          Dialog dialog = new Dialog(MainActivity.this);
-           showAlertDialog();
+        Dialog dialog = new Dialog(MainActivity.this);
+        showAlertDialog();
 //            //  super.onBackPressed();
 //
 //        }
     }
+
     public void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Thông Báo");
@@ -92,28 +91,26 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                break;
+            case R.id.action_exit:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
             getSupportActionBar().setTitle("Home");
             Fragment_Home fragmentHome = new Fragment_Home();
@@ -125,26 +122,6 @@ public class MainActivity extends AppCompatActivity
             Fragment_English fragmenEnglish = new Fragment_English();
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_main, fragmenEnglish, fragmenEnglish.getTag()).commit();
-
-        }else if (id == R.id.nav_math) {
-            getSupportActionBar().setTitle("  Môn Toán");
-            Fragment_Math fragmentMath = new Fragment_Math();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_main, fragmentMath, fragmentMath.getTag()).commit();
-
-        }else if (id == R.id.nav_physics) {
-            getSupportActionBar().setTitle("  Môn Vật Lý");
-            Fragment_Physics fragmentPhysics = new Fragment_Physics();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_main, fragmentPhysics, fragmentPhysics.getTag()).commit();
-
-        } else if (id == R.id.nav_chemistry) {
-            getSupportActionBar().setTitle(" Môn Hóa Học");
-            Fragment_Chemistry fragmentChemistry = new Fragment_Chemistry();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_main, fragmentChemistry, fragmentChemistry.getTag()).commit();
-
-
         } else if (id == R.id.nav_about) {
             getSupportActionBar().setTitle("   Thông tin");
             Fragment_About fragmentAbout = new Fragment_About();

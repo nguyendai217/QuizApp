@@ -17,13 +17,9 @@ public class Fragment_About extends Fragment {
     public Fragment_About() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //getActivity().getActionBar().setTitle("Thông tin");
         return inflater.inflate(R.layout.fragment_about, container, false);
     }
 

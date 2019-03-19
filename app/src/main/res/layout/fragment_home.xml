@@ -5,109 +5,36 @@
     android:layout_height="match_parent"
     android:background="@drawable/bgapp"
     tools:context=".fragment.Fragment_Home"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/frag_home">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_name_app"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:textColor="#D6CBCB"
+        android:textSize="50sp"
+        android:text="QuizApp English"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="QuizApp"
-            android:textSize="40sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="Mời bạn chọn môn kiểm tra "
-            android:textColor="#fa3e3e"
-            android:textSize="20dp" />
-        <LinearLayout
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:background="#2086C3E7"
-                android:src="@drawable/icon_english"
-                android:id="@+id/imagebtn_english"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textColor="#090808"
-                android:text="Tiếng Anh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:background="#2086C3E7"
-                android:src="@drawable/icon_mathlarge"
-                android:id="@+id/imagebtn_math"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textColor="#090808"
-                android:text="Toán"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:background="#2086C3E7"
-                android:src="@drawable/icon_physiclarge"
-                android:id="@+id/imagebtn_physics"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textColor="#090808"
-                android:text="Vật lí"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-           android:layout_marginLeft="100dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageButton
-                android:background="#2086C3E7"
-                android:src="@drawable/icon_chemistrylarge"
-                android:id="@+id/imagebtn_chemistry"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textSize="30sp"
-                android:textColor="#090808"
-                android:text="Hóa Học"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        android:layout_height="wrap_content" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name_app"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="251dp"
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/bg_next"
+        android:text="Start"
+        android:textColor="#ffff" />
+</RelativeLayout>
 
 </FrameLayout>

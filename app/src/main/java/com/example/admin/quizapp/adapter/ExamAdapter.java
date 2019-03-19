@@ -17,7 +17,6 @@ public class ExamAdapter extends ArrayAdapter<Exam> {
     public ExamAdapter( Context context, ArrayList<Exam> arrayExam) {
         super(context, 0, arrayExam);
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {

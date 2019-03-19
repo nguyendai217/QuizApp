@@ -16,18 +16,6 @@
                     android:id="@+id/nav_english"
                     android:icon="@drawable/icon_english_24dp"
                     android:title="Tiếng anh" />
-                <item
-                    android:id="@+id/nav_math"
-                    android:icon="@drawable/icon_math"
-                    android:title="Môn Toán" />
-                <item
-                    android:id="@+id/nav_physics"
-                    android:icon="@drawable/icons8_physics"
-                    android:title="Vật Lý" />
-                <item
-                    android:id="@+id/nav_chemistry"
-                    android:icon="@drawable/icon_chemistry"
-                    android:title="Hóa Học" />
             </group>
         </menu>
     </item>

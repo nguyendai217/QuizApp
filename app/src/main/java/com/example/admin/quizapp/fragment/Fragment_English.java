@@ -21,13 +21,11 @@ public class Fragment_English extends Fragment {
     ArrayList<Exam> arrayListExam = new ArrayList<>();
 
     public Fragment_English() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_english, container, false);
     }
     @Override
