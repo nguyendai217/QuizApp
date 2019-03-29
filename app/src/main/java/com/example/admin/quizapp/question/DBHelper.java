@@ -63,7 +63,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return checkDB != null ? true : false;
     }
-
     private void copyDataBase() throws IOException {
 
         InputStream myInput = myContext.getAssets().open(DB_NAME);
@@ -85,7 +84,6 @@ public class DBHelper extends SQLiteOpenHelper {
         myInput.close();
 
     }
-
     public void createDataBase() throws IOException {
         boolean dbExist = checkDataBase(); //kiem tra db
 
@@ -99,7 +97,6 @@ public class DBHelper extends SQLiteOpenHelper {
             }
         }
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 

@@ -1,4 +1,4 @@
-package com.example.admin.quizapp.question;
+package com.example.admin.quizapp.model;
 public class Question {
     private int id;
     private String contents;
@@ -10,8 +10,9 @@ public class Question {
     private String image;
     private int number_exam;
     private String monhoc;
+    private String answer;
 
-    public Question(int id, String contents, String ans_a, String ans_b, String ans_c, String ans_d, String result, String image, int number_exam, String monhoc) {
+    public Question(int id, String contents, String ans_a, String ans_b, String ans_c, String ans_d, String result, String image, int number_exam, String monhoc, String answer) {
         this.id = id;
         this.contents = contents;
         this.ans_a = ans_a;
@@ -22,6 +23,7 @@ public class Question {
         this.image = image;
         this.number_exam = number_exam;
         this.monhoc = monhoc;
+        this.answer= answer;
     }
 
     public int getId() {
@@ -101,6 +103,13 @@ public class Question {
 
     public void setMonhoc(String monhoc) {
         this.monhoc = monhoc;
+    }
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
 }

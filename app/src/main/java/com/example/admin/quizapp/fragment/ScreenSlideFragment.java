@@ -2,7 +2,6 @@ package com.example.admin.quizapp.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.example.admin.quizapp.R;
 import com.example.admin.quizapp.activity.ScreenSlideActivity;
-import com.example.admin.quizapp.question.Question;
+import com.example.admin.quizapp.model.Question;
 import java.util.ArrayList;
 
 /**
@@ -51,13 +50,21 @@ public class ScreenSlideFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        tvNum.setText("câu"+ mPage);
+
        // Log.d("dai", "onActivityCreated: "+tvNum);
         tvQuestion.setText(arrQuestion.get(mPage).getContents());
         radA.setText(getItem(mPage).getAns_a());
         radB.setText(getItem(mPage).getAns_b());
         radC.setText(getItem(mPage).getAns_c());
         radD.setText(getItem(mPage).getAns_d());
+        tvNum.setText("Câu "+ (mPage+1));
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+            }
+        });
     }
     public static ScreenSlideFragment create(int pageNumber){
         ScreenSlideFragment screenFragment= new ScreenSlideFragment();

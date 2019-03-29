@@ -10,15 +10,23 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TextView;
+
 import com.example.admin.quizapp.R;
+import com.example.admin.quizapp.adapter.CheckAnswerAdapter;
 import com.example.admin.quizapp.fragment.ScreenSlideFragment;
-import com.example.admin.quizapp.question.Question;
+import com.example.admin.quizapp.model.Question;
 import com.example.admin.quizapp.question.QuestionController;
 import java.util.ArrayList;
 public class ScreenSlideActivity extends FragmentActivity {
     private static final int NUM_PAGES = 10;
     private ViewPager viewPager;
     private PagerAdapter pagerAdapter;
+    private TextView tvKiemTra;
+    Button btnCancel,btnFinish;
     QuestionController questionController;
     ArrayList<Question>arrQuestion= new ArrayList<>();
 
@@ -33,6 +41,12 @@ public class ScreenSlideActivity extends FragmentActivity {
         pagerAdapter = new ScreenSlideAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setPageTransformer(true, new DepthPageTransformer());// setup hiệu ứng cho viewpager
+        tvKiemTra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkAnswer();
+            }
+        });
     }
     public  ArrayList<Question> getData(){
         questionController= new QuestionController(this);
@@ -41,6 +55,7 @@ public class ScreenSlideActivity extends FragmentActivity {
     }
     private void init() {
         viewPager = findViewById(R.id.vwpager);
+        tvKiemTra=findViewById(R.id.tvKiemTra);
     }
 
     private class ScreenSlideAdapter extends FragmentStatePagerAdapter {
@@ -48,7 +63,6 @@ public class ScreenSlideActivity extends FragmentActivity {
         public ScreenSlideAdapter(FragmentManager fm) {
             super(fm);
         }
-
         @Override
         public Fragment getItem(int i) {
             return ScreenSlideFragment.create(i);
@@ -58,6 +72,37 @@ public class ScreenSlideActivity extends FragmentActivity {
         public int getCount() {
             return NUM_PAGES;
         }
+    }
+    public void checkAnswer(){
+        final Dialog dialog= new Dialog(this);
+        dialog.setContentView(R.layout.checkanswer_dialog);
+        CheckAnswerAdapter checkAnswerAdapter= new CheckAnswerAdapter(arrQuestion,this);
+        GridView gridViewAnswer= dialog.findViewById(R.id.gridview_answer);
+        gridViewAnswer.setAdapter(checkAnswerAdapter);
+
+        gridViewAnswer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                viewPager.setCurrentItem(position);
+                dialog.dismiss();
+            }
+        });
+        btnCancel=dialog.findViewById(R.id.btnCancel);
+        btnFinish=dialog.findViewById(R.id.btnFinish);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        btnFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        dialog.show();
+
     }
     @Override
     public void onBackPressed() {
@@ -92,7 +137,7 @@ public class ScreenSlideActivity extends FragmentActivity {
 
     }
     public static class DepthPageTransformer implements ViewPager.PageTransformer {
-        private static float MIN_SCALE = 0.75f;
+        private static float MIN_SCALE = 0.5f;
 
         public void transformPage(View view, float position) {
             int pageWidth = view.getWidth();

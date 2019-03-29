@@ -2,6 +2,9 @@ package com.example.admin.quizapp.question;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.admin.quizapp.model.Question;
+
 import java.util.ArrayList;
 public class QuestionController {
     private DBHelper dbHelper;
@@ -21,7 +24,7 @@ public class QuestionController {
                     cursor.getString(3), cursor.getString(4),
                     cursor.getString(5), cursor.getString(6),
                     cursor.getString(7), cursor.getInt(8),
-                    cursor.getString(9));
+                    cursor.getString(9),"");
             arrayList.add(question);
         }
         while (cursor.moveToNext()) ;
